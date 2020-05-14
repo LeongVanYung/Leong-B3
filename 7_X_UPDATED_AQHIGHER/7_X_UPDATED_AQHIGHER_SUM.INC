@@ -375,12 +375,12 @@ PERFORMA                               -- Generated : Petrel
 
 WGORL
  'B1' 1 /
- 'B1' 2 /
+ -- 'B1' 2 /
 /
 
 WWCTL
  'B1' 1 /
- 'B1' 2 /
+ -- 'B1' 2 /
 /
 
 WVFRL
