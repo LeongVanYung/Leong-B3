@@ -128,8 +128,8 @@ FNQR                                   -- Generated : Petrel
 
 FAQR                                   -- Generated : Petrel
 
-ALQR                                   -- Generated : Petrel
- /
+-- ALQR                                   -- Generated : Petrel
+-- /
 
 ANQR                                   -- Generated : Petrel
  /
