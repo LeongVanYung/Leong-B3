@@ -1,0 +1,170 @@
+-- Generated [
+-- Format      : ECLIPSE keywords (ASCII)
+-- Exported by : Petrel 2016.3 (64-bit) Schlumberger
+-- User name   : BCHUAH
+-- Date        : Wednesday, November 15 2017 16:22:17
+-- Project     : BaseCase367.pet
+-- Generated ]
+
+RUNSPEC
+--LRAT_3 (Matching Watercuts)
+----------------------
+--1. PERM x 2 (within Meranti Core data)
+--2. Aq2 PERMs:
+--	- H30: 4250 mD; thickness: 1500 ft; angle: 165 deg; total comp: 0.000008 psi-1
+--	- I60: 300 mD; thickness: 100ft; total comp: 0.000001 psi-1; external radius: 250 ft; angle: 150 deg
+--3. Using BHP datum depth correction by ECLIPSE  
+--4. RELPERM does not have Sw_crit
+--
+--History Matching
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--1.  Production profile allocated until Nov 30 2016
+--2.  Pressure data from DHPG; BHP referenced at midperf
+--
+--
+--1.  Static Model Basecase #367
+--
+--2.  PERMXY from the PORO-PERM transform provided by PP based on Meranti 6F core from April 2016 Model 
+--(PERMXY = 670910.8*XPHIE^5.0764)
+--
+--3.  kv/kh assumption: 0.1
+--
+--4.  PVT Model from Correlation (Vasquez & Beggs)
+--- API: 41.0 – 41.3 
+--- Gas Gravity = 0.9
+--- Rsi matched with initial / stable GOR: 500-650 scf/bbl
+--- Boi: 1.33 RB/STB (H30) and 1.39 rb/stb (I60)
+--- Pb: 1949.25 psi (H30) & 2358.10 psi (I60)
+--
+--5.  Fluid contacts
+--- H30: 4477 ft TVDss (GOC) & 4517 ft TVDss (OWC)
+--- I60: 5443 ft TVDss (GOC) & 5491 ft TVDss (OWC)
+--
+--
+--
+
+EQLDIMS                                -- Generated : Petrel
+  2 /
+
+TITLE                                  -- Generated : Petrel
+'367_HISTORY MATCHING #3'
+
+WELLDIMS                               -- Generated : Petrel
+  3 19 2 3 /
+
+START                                  -- Generated : Petrel
+  15 JUL 2014 /
+
+PARALLEL
+6 /
+
+DISGAS                                 -- Generated : Petrel
+
+WATER                                  -- Generated : Petrel
+
+OIL                                    -- Generated : Petrel
+
+GAS                                    -- Generated : Petrel
+
+PETOPTS                                -- Generated : Petrel
+INITNNC /
+
+MONITOR                                -- Generated : Petrel
+
+CPR                                    -- Generated : Petrel
+  /
+
+UNIFOUT
+
+--@@@MULTOUT                                -- Generated : Petrel
+
+FIELD                                  -- Generated : Petrel
+
+DIMENS                                 -- Generated : Petrel
+  34 102 41 /
+
+TABDIMS                                -- Generated : Petrel
+  2 2 85 50 2 38 6* 2 /
+
+AQUDIMS                                -- Generated : Petrel
+  1 1 1 36 2 960 2 1 /
+
+GRID
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_GRID.INC' /
+
+NOECHO                                 -- Generated : Petrel
+
+GDFILE                                 -- Generated : Petrel
+  '7_X_UPDATED_AQHIGHER_GRID.EGRID' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_PERMX.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_PERMY.GRDECL' /
+
+COPY
+PERMX PERMZ /
+/
+
+MULTIPLY
+PERMZ 0.045	1	34	1	102	1	20	/
+PERMZ 0.012000	1	34	1	102	22	41	/
+/
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_PERMZ.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_PORO.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_NTG.GRDECL' /
+
+ECHO                                   -- Generated : Petrel
+
+EDIT
+
+PROPS
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROPS.INC' /
+
+REGIONS
+
+NOECHO                                 -- Generated : Petrel
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_SATNUM.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_PVTNUM.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_ROCKNUM.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_EQLNUM.GRDECL' /
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_PROP_FIPNUM.GRDECL' /
+
+ECHO                                   -- Generated : Petrel
+
+SOLUTION
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_SOL.INC' /
+
+SUMMARY
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_SUM.INC' /
+
+SCHEDULE
+
+INCLUDE                                -- Generated : Petrel
+'7_X_UPDATED_AQHIGHER_SCH.INC' /
+
